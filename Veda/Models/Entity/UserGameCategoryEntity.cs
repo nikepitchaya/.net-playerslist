@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MyTask.Models.Entity;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -24,5 +26,8 @@ namespace PlayersList.Models.Entity
 
         [Column("updated_at")]
         public DateTime updated_at { get; set; }
+
+        [ForeignKey("id")]
+        public List<GameCategoryEntity> gameCategory { get; set; }
     }
 }

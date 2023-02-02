@@ -27,6 +27,7 @@ using PlayersList.Service.User;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using PlayersList.Service.Game;
 
 namespace mytask
 {
@@ -69,10 +70,13 @@ namespace mytask
             //BusinessFlow
             services.AddScoped<HealthCheckBusinessFlow>();
             services.AddScoped<UserFlow>();
+            services.AddScoped<GameFlow>();
             //BusinessLogic
             services.AddScoped<UserLogic>();
+            services.AddScoped<GameLogic>();
             //BusinessService
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IGameService, GameService>();
             //Repository
             services.AddScoped<IBaseRepository, BaseRepository>();
 

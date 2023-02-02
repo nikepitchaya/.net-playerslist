@@ -38,5 +38,6 @@ namespace PlayersList.Controllers
             int userId = GetUserIdAuthorization();
             return userFlow.GetUser(userId);
         }
+
     }
 }

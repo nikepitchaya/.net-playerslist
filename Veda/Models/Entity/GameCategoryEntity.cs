@@ -14,22 +14,22 @@ namespace PlayersList.Models.Entity
         public int id { get; set; }
 
         [Column("name")]
-        public int name { get; set; }
+        public string name { get; set; }
 
         [Column("about")]
-        public int about { get; set; }
+        public string about { get; set; }
 
         [Column("information")]
-        public int information { get; set; }
+        public string information { get; set; }
 
         [Column("system_requirement")]
-        public int system_requirement { get; set; }
+        public string system_requirement { get; set; }
 
         [Column("url_picture")]
-        public int url_picture { get; set; }
+        public string url_picture { get; set; }
 
         [Column("url_video")]
-        public int url_video { get; set; }
+        public string url_video { get; set; }
 
         [Column("created_at")]
         public DateTime created_at { get; set; }
