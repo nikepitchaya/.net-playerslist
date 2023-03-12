@@ -13,10 +13,10 @@ namespace PlayersList.Models.Entity
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [ScaffoldColumn(true)]
         [Column("id")]
-        public int id { get; set; }
+        public long id { get; set; }
 
         [Column("user_id")]
-        public int user_id { get; set; }
+        public long user_id { get; set; }
 
         [Column("game_category_id")]
         public int game_category_id { get; set; }
@@ -27,7 +27,5 @@ namespace PlayersList.Models.Entity
         [Column("updated_at")]
         public DateTime updated_at { get; set; }
 
-        [ForeignKey("id")]
-        public List<GameCategoryEntity> gameCategory { get; set; }
     }
 }

@@ -34,7 +34,7 @@ namespace PlayersList.Controllers
         }
 
         [HttpGet("api/v1/mygamecategory")]
-        public List<GameCategoryResponse> GetGameCategoryByUserId()
+        public List<UserGameCategoryResponse> GetGameCategoryByUserId()
         {
             int userId = GetUserIdAuthorization();
             return gameFlow.GetGameCategoryByUserId(userId);

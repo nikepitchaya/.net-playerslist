@@ -12,7 +12,7 @@ namespace PlayersList.Models.Entity
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [ScaffoldColumn(true)]
         [Column("id")]
-        public int id { get; set; }
+        public long id { get; set; }
         [Column("username")]
         public string username { get; set; }
         [Column("name")]

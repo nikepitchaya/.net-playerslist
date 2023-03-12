@@ -32,6 +32,12 @@ namespace PlayersList.Service.Game
             return gameCategory;
         }
 
+        public List<UserGameCategoryEntity> GetUserGameCategoryIdByUserId(int userId)
+        {
+            List<UserGameCategoryEntity> userGameCategory = baseRepository.Gets<UserGameCategoryEntity>(filter: a => a.user_id == userId).ToList();
+            return  userGameCategory;
+        }
+
         public string UserAddGameCategory(UserGameCategoryEntity newUserAddGameCategory)
         {
             string response = "";

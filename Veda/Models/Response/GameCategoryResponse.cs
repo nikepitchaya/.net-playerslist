@@ -1,9 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PlayersList.Models.Response
 {
     public class GameCategoryResponse
     {
+        internal DateTime updated_at;
+
         public int id { get; set; }
     
         public string name { get; set; }

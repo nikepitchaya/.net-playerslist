@@ -16,18 +16,14 @@ using PlayersList.Data;
 using mytask.Handler;
 using PlayersList.Repository;
 using MyTask.BusinessFlow;
-using MyTask.Service.Task;
-using MyTask.Service.Todolist;
-using MyTask.Service.Color;
-using MyTask.BusinessLogic.CreateTaskBusinestLogic;
-using MyTask.BusinessLogic.CreateTodolistBusinessLogic;
 using PlayersList.Flow;
 using PlayersList.Logic;
 using PlayersList.Service.User;
+using PlayersList.Service.Game;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
-using PlayersList.Service.Game;
+using PlayersList.Service.Player;
 
 namespace mytask
 {
@@ -67,16 +63,19 @@ namespace mytask
                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
                });
 
-            //BusinessFlow
+            //Flow
             services.AddScoped<HealthCheckBusinessFlow>();
             services.AddScoped<UserFlow>();
             services.AddScoped<GameFlow>();
-            //BusinessLogic
+            services.AddScoped<PlayerFlow>();
+            //Logic
             services.AddScoped<UserLogic>();
             services.AddScoped<GameLogic>();
-            //BusinessService
+            services.AddScoped<PlayerLogic>();
+            //Service
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IGameService, GameService>();
+            services.AddScoped<IPlayerService, PlayerService>();
             //Repository
             services.AddScoped<IBaseRepository, BaseRepository>();
 
@@ -86,7 +85,7 @@ namespace mytask
                 options.AddPolicy(name: MyAllowSpecificOrigins,
                                   builder =>
                                   {
-                                      builder.WithOrigins("http://localhost:5000")
+                                      builder.WithOrigins("http://localhost:3000")
                                           .AllowAnyHeader()
                                           .AllowAnyOrigin()
                                           .AllowAnyMethod();

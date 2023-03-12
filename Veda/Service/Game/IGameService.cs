@@ -12,6 +12,8 @@ namespace PlayersList.Service.Game
 
         List<GameCategoryEntity> GetGameCategoryByUserId(int userId);
 
+        List<UserGameCategoryEntity> GetUserGameCategoryIdByUserId(int userId);
+
         string UserAddGameCategory(UserGameCategoryEntity newUserAddGameCategory);
     }
 }

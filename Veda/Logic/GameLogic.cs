@@ -33,6 +33,25 @@ namespace PlayersList.Logic
             return gameCategoryResponse;
         }
 
+        public List<UserGameCategoryResponse> MapUserGameCategoryResponse(List<UserGameCategoryEntity> userGameCategory , List<GameCategoryResponse> gameCategory)
+        {
+            List<UserGameCategoryResponse> gameCategoryResponse = new List<UserGameCategoryResponse>();
+            for(int i = 0; i < userGameCategory.Count; i++)
+            {
+                if(userGameCategory[i].game_category_id == gameCategory[i].id)
+                {
+                    UserGameCategoryResponse data = new UserGameCategoryResponse()
+                    {
+                        id = (int)userGameCategory[i].id,  
+                        updated_at = userGameCategory[i].updated_at,
+                        gameCategory = gameCategory[i],
+                    };
+                    gameCategoryResponse.Add(data);
+                }
+            }
+            return gameCategoryResponse;
+        }
+
         public UserGameCategoryEntity MapNewUserAddGameCategory(int userId, int gameCategoryId)
         {
             UserGameCategoryEntity newUserAddGameCategory = new UserGameCategoryEntity()

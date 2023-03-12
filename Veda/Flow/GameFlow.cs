@@ -43,15 +43,21 @@ namespace PlayersList.Flow
             }
             return gameCategoryResponses;
         }
-        public List<GameCategoryResponse> GetGameCategoryByUserId(int userId)
+        public List<UserGameCategoryResponse> GetGameCategoryByUserId(int userId)
         {
+            List<UserGameCategoryResponse> userGameCategoryResponses = new List<UserGameCategoryResponse>();
             List<GameCategoryResponse> gameCategoryResponses = new List<GameCategoryResponse>();
             List<GameCategoryEntity> gameCategory = gameService.GetGameCategoryByUserId(userId);
             if (gameCategory != null)
             {
                 gameCategoryResponses = gameLogic.MapGameCategoryResponse(gameCategory);
             }
-            return gameCategoryResponses;
+            List<UserGameCategoryEntity> userGameCategory = gameService.GetUserGameCategoryIdByUserId(userId);
+            if (gameCategoryResponses != null && userGameCategory != null)
+            {
+                userGameCategoryResponses = gameLogic.MapUserGameCategoryResponse(userGameCategory, gameCategoryResponses);
+            }
+            return userGameCategoryResponses;
         }
 
     }

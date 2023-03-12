@@ -34,7 +34,7 @@
 	  			create table playerslist.users_game_category (
 		  			id serial not null constraint users_game_category_pk primary key,
 					user_id bigint not null constraint users_game_category_user_id_fk references playerslist.users,
-					game_category_id int4 not null constraint users_game_category_game_category_id_fk references playerslist.game_category,
+					game_category_id int not null constraint users_game_category_game_category_id_fk references playerslist.game_category,
 					created_at timestamptz DEFAULT now(),
 		  			updated_at timestamptz DEFAULT now()
 	  			);
@@ -57,7 +57,7 @@
 				
 				create table playerslist.players (
 		  			id serial not null constraint players_pk primary key,
-					user_game_category_id int not null constraint players_user_game_category_id_fk references playerslist.users_game_category,
+					user_game_category_id bigint not null constraint players_user_game_category_id_fk references playerslist.users_game_category,
 					type_id int not null constraint players_type_id_fk references playerslist.players_types,
 					name varchar(255) not null,
 					about varchar(255) not null, 
