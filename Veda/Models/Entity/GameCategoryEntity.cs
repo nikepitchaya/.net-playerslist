@@ -7,6 +7,8 @@ namespace PlayersList.Models.Entity
     [Table("game_category", Schema = "playerslist")]
     public class GameCategoryEntity
     {
+        internal string action;
+
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [ScaffoldColumn(true)]

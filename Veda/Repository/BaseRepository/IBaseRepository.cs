@@ -29,5 +29,6 @@ namespace PlayersList.Repository
         T Delete<T>(T model) where T : class;
         List<T> DeleteRange<T>(List<T> model) where T : class;
         List<T> GetItems<T>(Expression<Func<T, bool>> filter = null, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null) where T : class;
+      
     }
 }

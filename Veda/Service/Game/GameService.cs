@@ -1,5 +1,5 @@
 ﻿
-using MyTask.Models.Entity;
+
 using PlayersList.Models.Entity;
 using PlayersList.Repository;
 using System.Collections.Generic;
